@@ -1,12 +1,13 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="StartJobs" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="StartJobs" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="in_VersaoProcesso" Type="InArgument(x:String)" />
     <x:Property Name="in_RoboId" Type="InArgument(x:String)" />
     <x:Property Name="in_TokenAcesso" Type="InArgument(x:String)" />
     <x:Property Name="in_tenantName" Type="InArgument(x:String)" />
     <x:Property Name="in_PastaID" Type="InArgument(x:String)" />
+    <x:Property Name="in_Arguments" Type="InArgument(x:String)" />
   </x:Members>
-  <sap:VirtualizedContainerService.HintSize>786.4,613.6</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1051.2,613.6</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="32">
@@ -84,7 +85,7 @@
         <x:Boolean x:Key="IsPinned">False</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:HttpClient ConsumerKey="{x:Null}" ConsumerSecret="{x:Null}" ContinueOnError="{x:Null}" OAuth1Token="{x:Null}" OAuth1TokenSecret="{x:Null}" OAuth2Token="{x:Null}" Password="{x:Null}" ResourcePath="{x:Null}" ResponseHeaders="{x:Null}" StatusCode="{x:Null}" Username="{x:Null}" AcceptFormat="ANY" Body="[&quot;{ &quot;&quot;startInfo&quot;&quot;:   { &quot;&quot;ReleaseKey&quot;&quot;: &quot;&quot;&quot; +in_VersaoProcesso+ &quot;&quot;&quot;, &quot;&quot;Strategy&quot;&quot;: &quot;&quot;All&quot;&quot;, &quot;&quot;RobotIds&quot;&quot;: [  &quot;+in_RoboId+&quot;  ], &quot;&quot;JobsCount&quot;&quot;: 0, &quot;&quot;Source&quot;&quot;: &quot;&quot;Manual&quot;&quot;} }&quot;]" BodyFormat="application/json" ClientCertificate="[Nothing]" ClientCertificatePassword="[Nothing]" DisplayName="HTTP Request" EndPoint="https://cloud.uipath.com/t2ccfukqir/T2C/odata/Jobs/UiPath.Server.Configuration.OData.StartJobs" sap:VirtualizedContainerService.HintSize="333.6,22.4" sap2010:WorkflowViewState.IdRef="HttpClient_8" Method="POST" Result="[ResultadoStartJob]" TimeoutMS="6000">
+    <ui:HttpClient ConsumerKey="{x:Null}" ConsumerSecret="{x:Null}" ContinueOnError="{x:Null}" OAuth1Token="{x:Null}" OAuth1TokenSecret="{x:Null}" OAuth2Token="{x:Null}" Password="{x:Null}" ResourcePath="{x:Null}" ResponseHeaders="{x:Null}" StatusCode="{x:Null}" Username="{x:Null}" AcceptFormat="ANY" Body="[&quot;{ &quot;&quot;startInfo&quot;&quot;:   { &quot;&quot;ReleaseKey&quot;&quot;: &quot;&quot;&quot; +in_VersaoProcesso+ &quot;&quot;&quot;, &quot;&quot;Strategy&quot;&quot;: &quot;&quot;All&quot;&quot;, &quot;&quot;RobotIds&quot;&quot;: [  &quot;+in_RoboId+&quot;  ], &quot;&quot;JobsCount&quot;&quot;: 0, &quot;&quot;Source&quot;&quot;: &quot;&quot;Manual&quot;&quot;, &quot;&quot;InputArguments&quot;&quot;: &quot;&quot;{\&quot;&quot;in_OlaMundo\&quot;&quot;:\&quot;&quot;&quot;+in_Arguments+&quot;\&quot;&quot;}&quot;&quot;} }&quot;]" BodyFormat="application/json" ClientCertificate="[Nothing]" ClientCertificatePassword="[Nothing]" DisplayName="HTTP Request" EndPoint="https://cloud.uipath.com/t2ccfukqir/T2C/odata/Jobs/UiPath.Server.Configuration.OData.StartJobs" sap:VirtualizedContainerService.HintSize="333.6,22.4" sap2010:WorkflowViewState.IdRef="HttpClient_8" Method="POST" Result="[ResultadoStartJob]" TimeoutMS="6000">
       <ui:HttpClient.Attachments>
         <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
       </ui:HttpClient.Attachments>
@@ -92,18 +93,10 @@
         <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
       </ui:HttpClient.Cookies>
       <ui:HttpClient.Headers>
-        <InArgument x:TypeArguments="x:String" x:Key="Content-Type">
-          <Literal x:TypeArguments="x:String">application/json</Literal>
-        </InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="X-UIPATH-TenantName">
-          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_tenantName" />
-        </InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="Authorization">
-          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="&quot;Bearer &quot; + in_TokenAcesso" />
-        </InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="X-UIPATH-OrganizationUnitId">
-          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_PastaID" />
-        </InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="Content-Type">application/json</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="X-UIPATH-TenantName">[in_tenantName]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="Authorization">["Bearer " + in_TokenAcesso]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="X-UIPATH-OrganizationUnitId">[in_PastaID]</InArgument>
       </ui:HttpClient.Headers>
       <ui:HttpClient.Parameters>
         <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
