@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Main" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="967.2,1264.8" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:njl="clr-namespace:Newtonsoft.Json.Linq;assembly=Newtonsoft.Json" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="786.4,1380.8" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:njl="clr-namespace:Newtonsoft.Json.Linq;assembly=Newtonsoft.Json" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="37">
       <x:String>System.Activities</x:String>
@@ -41,7 +41,7 @@
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="29">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="30">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -71,28 +71,26 @@
       <AssemblyReference>UiPath.Web.Activities</AssemblyReference>
       <AssemblyReference>Newtonsoft.Json</AssemblyReference>
       <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap:VirtualizedContainerService.HintSize="416.8,1595.2" sap2010:WorkflowViewState.IdRef="Sequence_2">
+  <Sequence sap:VirtualizedContainerService.HintSize="375.2,1216" sap2010:WorkflowViewState.IdRef="Sequence_2">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="url" />
       <Variable x:TypeArguments="x:String" Name="tenantName" />
-      <Variable x:TypeArguments="x:String" Name="client_id" />
-      <Variable x:TypeArguments="x:String" Name="refresh_token" />
       <Variable x:TypeArguments="x:String" Name="Retorno" />
-      <Variable x:TypeArguments="njl:JObject" Name="JsonObject" />
+      <Variable x:TypeArguments="njl:JObject" Name="JsonObjetct" />
       <Variable x:TypeArguments="x:String" Name="TokenAcesso" />
-      <Variable x:TypeArguments="x:String" Name="RestostasPastas" />
-      <Variable x:TypeArguments="x:String" Name="Key" />
-      <Variable x:TypeArguments="x:String" Name="PastaId" />
+      <Variable x:TypeArguments="x:String" Name="KeyVersaoProcesso" />
       <Variable x:TypeArguments="x:String" Name="RoboId" />
+      <Variable x:TypeArguments="x:String" Name="PastaID" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Assign sap2010:Annotation.AnnotationText="Url do Orchetrator" sap:VirtualizedContainerService.HintSize="375.2,91.2" sap2010:WorkflowViewState.IdRef="Assign_1">
+    <Assign sap2010:Annotation.AnnotationText="Url do Orchetrator" sap:VirtualizedContainerService.HintSize="333.6,91.2" sap2010:WorkflowViewState.IdRef="Assign_1">
       <Assign.To>
         <OutArgument x:TypeArguments="x:String">[url]</OutArgument>
       </Assign.To>
@@ -105,7 +103,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </Assign>
-    <Assign sap2010:Annotation.AnnotationText="Tenant Name" sap:VirtualizedContainerService.HintSize="375.2,91.2" sap2010:WorkflowViewState.IdRef="Assign_2">
+    <Assign sap2010:Annotation.AnnotationText="Tenant Name" sap:VirtualizedContainerService.HintSize="333.6,91.2" sap2010:WorkflowViewState.IdRef="Assign_2">
       <Assign.To>
         <OutArgument x:TypeArguments="x:String">[tenantName]</OutArgument>
       </Assign.To>
@@ -118,472 +116,88 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </Assign>
-    <Sequence sap2010:Annotation.AnnotationText="Login no Orchestrator" DisplayName="Logar Orchetrator" sap:VirtualizedContainerService.HintSize="375.2,100" sap2010:WorkflowViewState.IdRef="Sequence_3">
-      <Sequence.Variables>
-        <Variable x:TypeArguments="x:Int32" Name="CodigoRetorno" />
-      </Sequence.Variables>
-      <sap:WorkflowViewStateService.ViewState>
-        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-          <x:Boolean x:Key="IsPinned">False</x:Boolean>
-          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-        </scg:Dictionary>
-      </sap:WorkflowViewStateService.ViewState>
-      <ui:HttpClient ConsumerKey="{x:Null}" ConsumerSecret="{x:Null}" ContinueOnError="{x:Null}" OAuth1Token="{x:Null}" OAuth1TokenSecret="{x:Null}" OAuth2Token="{x:Null}" Password="{x:Null}" ResourcePath="{x:Null}" ResponseHeaders="{x:Null}" Username="{x:Null}" AcceptFormat="ANY" Body="[&quot;{ &quot;&quot;grant_type&quot;&quot;: &quot;&quot;refresh_token&quot;&quot;, &quot;&quot;client_id&quot;&quot;: &quot;&quot;8DEv1AMNXczW3y4U15LL3jYf62jK93n5&quot;&quot;,  &quot;&quot;refresh_token&quot;&quot;: &quot;&quot;mqIZZ_ifVueEfpWOn4thMs3nDUC_0QioaXY6-7pyYjCHy&quot;&quot;}&quot;]" BodyFormat="application/json" ClientCertificate="[Nothing]" ClientCertificatePassword="[Nothing]" DisplayName="HTTP Request Authenticação" EndPoint="https://account.uipath.com/oauth/token" sap:VirtualizedContainerService.HintSize="794.4,22.4" sap2010:WorkflowViewState.IdRef="HttpClient_4" Method="POST" Result="[Retorno]" StatusCode="[CodigoRetorno]" TimeoutMS="6000">
-        <ui:HttpClient.Attachments>
-          <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
-        </ui:HttpClient.Attachments>
-        <ui:HttpClient.Cookies>
-          <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
-        </ui:HttpClient.Cookies>
-        <ui:HttpClient.Headers>
-          <InArgument x:TypeArguments="x:String" x:Key="Content-Type">application/json</InArgument>
-          <InArgument x:TypeArguments="x:String" x:Key="X-UIPATH-TenantName">[tenantName]</InArgument>
-        </ui:HttpClient.Headers>
-        <ui:HttpClient.Parameters>
-          <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
-        </ui:HttpClient.Parameters>
-        <ui:HttpClient.UrlSegments>
-          <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
-        </ui:HttpClient.UrlSegments>
-      </ui:HttpClient>
-      <ui:DeserializeJson x:TypeArguments="njl:JObject" sap2010:Annotation.AnnotationText="Deserialize JSON do Retorno do Login" DisplayName="Deserialize JSON" sap:VirtualizedContainerService.HintSize="794.4,91.2" sap2010:WorkflowViewState.IdRef="DeserializeJson`1_1" JsonObject="[JsonObject]" JsonString="[Retorno]">
-        <sap:WorkflowViewStateService.ViewState>
-          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-            <x:Boolean x:Key="IsPinned">False</x:Boolean>
-          </scg:Dictionary>
-        </sap:WorkflowViewStateService.ViewState>
-      </ui:DeserializeJson>
-      <Assign sap2010:Annotation.AnnotationText="Obtem o Token de Acesso ao Orkestrator" sap:VirtualizedContainerService.HintSize="794.4,91.2" sap2010:WorkflowViewState.IdRef="Assign_4">
-        <Assign.To>
-          <OutArgument x:TypeArguments="x:String">[TokenAcesso]</OutArgument>
-        </Assign.To>
-        <Assign.Value>
-          <InArgument x:TypeArguments="x:String">[JsonObject("access_token").ToString]</InArgument>
-        </Assign.Value>
-        <sap:WorkflowViewStateService.ViewState>
-          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-          </scg:Dictionary>
-        </sap:WorkflowViewStateService.ViewState>
-      </Assign>
-      <If sap2010:Annotation.AnnotationText="Verifica se Ocorreu algum erro no Login" Condition="[CodigoRetorno = 200]" sap:VirtualizedContainerService.HintSize="794.4,397.6" sap2010:WorkflowViewState.IdRef="If_1">
-        <sap:WorkflowViewStateService.ViewState>
-          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-            <x:Boolean x:Key="IsPinned">False</x:Boolean>
-            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-          </scg:Dictionary>
-        </sap:WorkflowViewStateService.ViewState>
-        <If.Then>
-          <Sequence sap2010:Annotation.AnnotationText="Adicionar Aqui Processos Caso Login Bem sucedido" sap:VirtualizedContainerService.HintSize="375.2,216.8" sap2010:WorkflowViewState.IdRef="Sequence_4">
-            <Sequence.Variables>
-              <Variable x:TypeArguments="x:String" Name="RestostasPastas" />
-              <Variable x:TypeArguments="njl:JObject" Name="JsonRespostasPasta" />
-            </Sequence.Variables>
-            <sap:WorkflowViewStateService.ViewState>
-              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-              </scg:Dictionary>
-            </sap:WorkflowViewStateService.ViewState>
-            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="333.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Trace" Message="[&quot;Acesso Permitido&quot;]" />
-          </Sequence>
-        </If.Then>
-        <If.Else>
-          <Sequence sap2010:Annotation.AnnotationText="Adicionar aqui Processos para o Caso de Erro no Login" sap:VirtualizedContainerService.HintSize="375.2,216.8" sap2010:WorkflowViewState.IdRef="Sequence_6">
-            <sap:WorkflowViewStateService.ViewState>
-              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-              </scg:Dictionary>
-            </sap:WorkflowViewStateService.ViewState>
-            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="333.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Trace" Message="[&quot;Erro ao tentar Logar&quot; + CodigoRetorno.ToString]" />
-          </Sequence>
-        </If.Else>
-      </If>
-    </Sequence>
-    <Sequence sap2010:Annotation.AnnotationText="Listagem de Pastas" DisplayName="Listagem de Pasta" sap:VirtualizedContainerService.HintSize="375.2,100" sap2010:WorkflowViewState.IdRef="Sequence_5">
-      <Sequence.Variables>
-        <Variable x:TypeArguments="x:Int32" Name="CodigoRetorno" />
-        <Variable x:TypeArguments="njl:JObject" Name="JsonRespostasPasta" />
-        <Variable x:TypeArguments="x:Int32" Name="CodigoRetornoListaPasta" />
-      </Sequence.Variables>
-      <sap:WorkflowViewStateService.ViewState>
-        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-          <x:Boolean x:Key="IsPinned">False</x:Boolean>
-        </scg:Dictionary>
-      </sap:WorkflowViewStateService.ViewState>
-      <ui:HttpClient Body="{x:Null}" ConsumerKey="{x:Null}" ConsumerSecret="{x:Null}" ContinueOnError="{x:Null}" OAuth1Token="{x:Null}" OAuth1TokenSecret="{x:Null}" OAuth2Token="{x:Null}" Password="{x:Null}" ResourcePath="{x:Null}" ResponseHeaders="{x:Null}" Username="{x:Null}" AcceptFormat="ANY" sap2010:Annotation.AnnotationText="Obtem a Lista de Pastas do Orchetrator" BodyFormat="application/json" ClientCertificate="[Nothing]" ClientCertificatePassword="[Nothing]" DisplayName="HTTP Request" EndPoint="https://cloud.uipath.com/t2ccfukqir/T2C/odata/Folders" sap:VirtualizedContainerService.HintSize="752.8,66.4" sap2010:WorkflowViewState.IdRef="HttpClient_5" Method="GET" Result="[RestostasPastas]" StatusCode="[CodigoRetornoListaPasta]" TimeoutMS="6000">
-        <ui:HttpClient.Attachments>
-          <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
-        </ui:HttpClient.Attachments>
-        <ui:HttpClient.Cookies>
-          <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
-        </ui:HttpClient.Cookies>
-        <ui:HttpClient.Headers>
-          <InArgument x:TypeArguments="x:String" x:Key="Content-Type">
-            <Literal x:TypeArguments="x:String">application/json</Literal>
-          </InArgument>
-          <InArgument x:TypeArguments="x:String" x:Key="X-UIPATH-TenantName">
-            <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="tenantName" />
-          </InArgument>
-          <InArgument x:TypeArguments="x:String" x:Key="Authorization">
-            <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="&quot;Bearer &quot; + TokenAcesso" />
-          </InArgument>
-        </ui:HttpClient.Headers>
-        <ui:HttpClient.Parameters>
-          <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
-        </ui:HttpClient.Parameters>
-        <ui:HttpClient.UrlSegments>
-          <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
-        </ui:HttpClient.UrlSegments>
-        <sap:WorkflowViewStateService.ViewState>
-          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-          </scg:Dictionary>
-        </sap:WorkflowViewStateService.ViewState>
-      </ui:HttpClient>
-      <If Condition="[CodigoRetornoListaPasta = 200]" sap:VirtualizedContainerService.HintSize="752.8,948.8" sap2010:WorkflowViewState.IdRef="If_2">
-        <sap:WorkflowViewStateService.ViewState>
-          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-            <x:Boolean x:Key="IsPinned">False</x:Boolean>
-          </scg:Dictionary>
-        </sap:WorkflowViewStateService.ViewState>
-        <If.Then>
-          <Sequence sap:VirtualizedContainerService.HintSize="375.2,799.2" sap2010:WorkflowViewState.IdRef="Sequence_7">
-            <Sequence.Variables>
-              <Variable x:TypeArguments="x:String" Name="DisplayName" />
-              <Variable x:TypeArguments="x:String" Name="FullyQualifiedName" />
-              <Variable x:TypeArguments="x:String" Name="FullyQualifiedNameOrderable" />
-              <Variable x:TypeArguments="x:String" Name="Description" />
-              <Variable x:TypeArguments="x:String" Name="ProvisionType" />
-              <Variable x:TypeArguments="x:String" Name="PermissionModel" />
-              <Variable x:TypeArguments="x:String" Name="ParentId" />
-              <Variable x:TypeArguments="x:String" Name="ParentKey" />
-              <Variable x:TypeArguments="x:String" Name="IsActive" />
-              <Variable x:TypeArguments="x:String" Name="FeedType" />
-            </Sequence.Variables>
-            <sap:WorkflowViewStateService.ViewState>
-              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-              </scg:Dictionary>
-            </sap:WorkflowViewStateService.ViewState>
-            <ui:DeserializeJson x:TypeArguments="njl:JObject" sap2010:Annotation.AnnotationText="Deserialize Json - Respostas Lista Pasta" DisplayName="Deserialize JSON" sap:VirtualizedContainerService.HintSize="333.6,91.2" sap2010:WorkflowViewState.IdRef="DeserializeJson`1_2" JsonObject="[JsonRespostasPasta]" JsonString="[RestostasPastas]">
-              <sap:WorkflowViewStateService.ViewState>
-                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                </scg:Dictionary>
-              </sap:WorkflowViewStateService.ViewState>
-            </ui:DeserializeJson>
-            <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="333.6,442.4" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
-              <ui:MultipleAssign.AssignOperations>
-                <scg:List x:TypeArguments="ui:AssignOperation" Capacity="16">
-                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
-                    <ui:AssignOperation.To>
-                      <OutArgument x:TypeArguments="x:String">[Key]</OutArgument>
-                    </ui:AssignOperation.To>
-                    <ui:AssignOperation.Value>
-                      <InArgument x:TypeArguments="x:String">[JsonRespostasPasta("value")(0)("Key").ToString]</InArgument>
-                    </ui:AssignOperation.Value>
-                  </ui:AssignOperation>
-                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
-                    <ui:AssignOperation.To>
-                      <OutArgument x:TypeArguments="x:String">[DisplayName]</OutArgument>
-                    </ui:AssignOperation.To>
-                    <ui:AssignOperation.Value>
-                      <InArgument x:TypeArguments="x:String">[JsonRespostasPasta("value")(0)("DisplayName").ToString]</InArgument>
-                    </ui:AssignOperation.Value>
-                  </ui:AssignOperation>
-                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_3">
-                    <ui:AssignOperation.To>
-                      <OutArgument x:TypeArguments="x:String">[FullyQualifiedName]</OutArgument>
-                    </ui:AssignOperation.To>
-                    <ui:AssignOperation.Value>
-                      <InArgument x:TypeArguments="x:String">[JsonRespostasPasta("value")(0)("FullyQualifiedName").ToString]</InArgument>
-                    </ui:AssignOperation.Value>
-                  </ui:AssignOperation>
-                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_4">
-                    <ui:AssignOperation.To>
-                      <OutArgument x:TypeArguments="x:String">[FullyQualifiedNameOrderable]</OutArgument>
-                    </ui:AssignOperation.To>
-                    <ui:AssignOperation.Value>
-                      <InArgument x:TypeArguments="x:String">[JsonRespostasPasta("value")(0)("FullyQualifiedNameOrderable").ToString]</InArgument>
-                    </ui:AssignOperation.Value>
-                  </ui:AssignOperation>
-                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_5">
-                    <ui:AssignOperation.To>
-                      <OutArgument x:TypeArguments="x:String">[Description]</OutArgument>
-                    </ui:AssignOperation.To>
-                    <ui:AssignOperation.Value>
-                      <InArgument x:TypeArguments="x:String">[JsonRespostasPasta("value")(0)("Description").ToString]</InArgument>
-                    </ui:AssignOperation.Value>
-                  </ui:AssignOperation>
-                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_6">
-                    <ui:AssignOperation.To>
-                      <OutArgument x:TypeArguments="x:String">[ProvisionType]</OutArgument>
-                    </ui:AssignOperation.To>
-                    <ui:AssignOperation.Value>
-                      <InArgument x:TypeArguments="x:String">[JsonRespostasPasta("value")(0)("ProvisionType").ToString]</InArgument>
-                    </ui:AssignOperation.Value>
-                  </ui:AssignOperation>
-                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_7">
-                    <ui:AssignOperation.To>
-                      <OutArgument x:TypeArguments="x:String">[PermissionModel]</OutArgument>
-                    </ui:AssignOperation.To>
-                    <ui:AssignOperation.Value>
-                      <InArgument x:TypeArguments="x:String">[JsonRespostasPasta("value")(0)("Key").ToString]</InArgument>
-                    </ui:AssignOperation.Value>
-                  </ui:AssignOperation>
-                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_8">
-                    <ui:AssignOperation.To>
-                      <OutArgument x:TypeArguments="x:String">[ParentId]</OutArgument>
-                    </ui:AssignOperation.To>
-                    <ui:AssignOperation.Value>
-                      <InArgument x:TypeArguments="x:String">[JsonRespostasPasta("value")(0)("ParentId").ToString]</InArgument>
-                    </ui:AssignOperation.Value>
-                  </ui:AssignOperation>
-                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_9">
-                    <ui:AssignOperation.To>
-                      <OutArgument x:TypeArguments="x:String">[ParentKey]</OutArgument>
-                    </ui:AssignOperation.To>
-                    <ui:AssignOperation.Value>
-                      <InArgument x:TypeArguments="x:String">[JsonRespostasPasta("value")(0)("ParentKey").ToString]</InArgument>
-                    </ui:AssignOperation.Value>
-                  </ui:AssignOperation>
-                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_10">
-                    <ui:AssignOperation.To>
-                      <OutArgument x:TypeArguments="x:String">[IsActive]</OutArgument>
-                    </ui:AssignOperation.To>
-                    <ui:AssignOperation.Value>
-                      <InArgument x:TypeArguments="x:String">[JsonRespostasPasta("value")(0)("IsActive").ToString]</InArgument>
-                    </ui:AssignOperation.Value>
-                  </ui:AssignOperation>
-                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_11">
-                    <ui:AssignOperation.To>
-                      <OutArgument x:TypeArguments="x:String">[FeedType]</OutArgument>
-                    </ui:AssignOperation.To>
-                    <ui:AssignOperation.Value>
-                      <InArgument x:TypeArguments="x:String">[JsonRespostasPasta("value")(0)("FeedType").ToString]</InArgument>
-                    </ui:AssignOperation.Value>
-                  </ui:AssignOperation>
-                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_12">
-                    <ui:AssignOperation.To>
-                      <OutArgument x:TypeArguments="x:String">[PastaId]</OutArgument>
-                    </ui:AssignOperation.To>
-                    <ui:AssignOperation.Value>
-                      <InArgument x:TypeArguments="x:String">[JsonRespostasPasta("value")(0)("Id").ToString]</InArgument>
-                    </ui:AssignOperation.Value>
-                  </ui:AssignOperation>
-                </scg:List>
-              </ui:MultipleAssign.AssignOperations>
-            </ui:MultipleAssign>
-            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="333.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Trace" Message="[&quot;Lista de Pasta obtidas com Sucesso&quot;]" />
-          </Sequence>
-        </If.Then>
-        <If.Else>
-          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="333.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Trace" Message="[&quot;Não foi possivel crregar a lista de Pastas&quot;]" />
-        </If.Else>
-      </If>
-    </Sequence>
-    <Sequence DisplayName="Listar Robos Na Pasta Especificada" sap:VirtualizedContainerService.HintSize="375.2,68.8" sap2010:WorkflowViewState.IdRef="Sequence_8">
-      <Sequence.Variables>
-        <Variable x:TypeArguments="x:String" Name="RetornoListaRobos" />
-        <Variable x:TypeArguments="x:Int32" Name="CodigoRetornoListaRobos" />
-        <Variable x:TypeArguments="njl:JObject" Name="JsonRetornoListaRobos" />
-      </Sequence.Variables>
-      <sap:WorkflowViewStateService.ViewState>
-        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-          <x:Boolean x:Key="IsPinned">False</x:Boolean>
-        </scg:Dictionary>
-      </sap:WorkflowViewStateService.ViewState>
-      <ui:HttpClient Body="{x:Null}" ConsumerKey="{x:Null}" ConsumerSecret="{x:Null}" ContinueOnError="{x:Null}" OAuth1Token="{x:Null}" OAuth1TokenSecret="{x:Null}" OAuth2Token="{x:Null}" Password="{x:Null}" ResourcePath="{x:Null}" ResponseHeaders="{x:Null}" Username="{x:Null}" AcceptFormat="ANY" BodyFormat="application/xml" ClientCertificate="[Nothing]" ClientCertificatePassword="[Nothing]" DisplayName="HTTP Request" EndPoint="https://cloud.uipath.com/t2ccfukqir/T2C/odata/Robots" sap:VirtualizedContainerService.HintSize="519.2,22.4" sap2010:WorkflowViewState.IdRef="HttpClient_6" Method="GET" Result="[RetornoListaRobos]" StatusCode="[CodigoRetornoListaRobos]" TimeoutMS="6000">
-        <ui:HttpClient.Attachments>
-          <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
-        </ui:HttpClient.Attachments>
-        <ui:HttpClient.Cookies>
-          <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
-        </ui:HttpClient.Cookies>
-        <ui:HttpClient.Headers>
-          <InArgument x:TypeArguments="x:String" x:Key="Content-Type">
-            <Literal x:TypeArguments="x:String">application/json</Literal>
-          </InArgument>
-          <InArgument x:TypeArguments="x:String" x:Key="X-UIPATH-TenantName">
-            <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="tenantName" />
-          </InArgument>
-          <InArgument x:TypeArguments="x:String" x:Key="X-UIPATH-OrganizationUnitId">
-            <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="PastaId" />
-          </InArgument>
-          <InArgument x:TypeArguments="x:String" x:Key="Authorization">
-            <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="&quot;Bearer &quot; + TokenAcesso" />
-          </InArgument>
-        </ui:HttpClient.Headers>
-        <ui:HttpClient.Parameters>
-          <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
-        </ui:HttpClient.Parameters>
-        <ui:HttpClient.UrlSegments>
-          <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
-        </ui:HttpClient.UrlSegments>
-      </ui:HttpClient>
-      <If Condition="[CodigoRetornoListaRobos = 200]" sap:VirtualizedContainerService.HintSize="519.2,544" sap2010:WorkflowViewState.IdRef="If_3">
-        <If.Then>
-          <Sequence sap:VirtualizedContainerService.HintSize="375.2,394.4" sap2010:WorkflowViewState.IdRef="Sequence_9">
-            <sap:WorkflowViewStateService.ViewState>
-              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-              </scg:Dictionary>
-            </sap:WorkflowViewStateService.ViewState>
-            <ui:DeserializeJson x:TypeArguments="njl:JObject" DisplayName="Deserialize JSON" sap:VirtualizedContainerService.HintSize="333.6,60" sap2010:WorkflowViewState.IdRef="DeserializeJson`1_3" JsonObject="[JsonRetornoListaRobos]" JsonString="[RetornoListaRobos]" />
-            <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="333.6,99.2" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
-              <ui:MultipleAssign.AssignOperations>
-                <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
-                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_13">
-                    <ui:AssignOperation.To>
-                      <OutArgument x:TypeArguments="x:String">[RoboId]</OutArgument>
-                    </ui:AssignOperation.To>
-                    <ui:AssignOperation.Value>
-                      <InArgument x:TypeArguments="x:String">[JsonRetornoListaRobos("value")(0)("Id").ToString]</InArgument>
-                    </ui:AssignOperation.Value>
-                  </ui:AssignOperation>
-                </scg:List>
-              </ui:MultipleAssign.AssignOperations>
-            </ui:MultipleAssign>
-            <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="333.6,62.4" sap2010:WorkflowViewState.IdRef="WriteLine_3" Text="[RetornoListaRobos.ToString]" />
-          </Sequence>
-        </If.Then>
-      </If>
-    </Sequence>
-    <Sequence DisplayName="Obter Versão dos Processos" sap:VirtualizedContainerService.HintSize="375.2,208" sap2010:WorkflowViewState.IdRef="Sequence_10">
-      <Sequence.Variables>
-        <Variable x:TypeArguments="x:String" Name="RetornoVersaoProcessos" />
-        <Variable x:TypeArguments="x:Int32" Name="CodigoVersaoProcessos" />
-      </Sequence.Variables>
-      <sap:WorkflowViewStateService.ViewState>
-        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-        </scg:Dictionary>
-      </sap:WorkflowViewStateService.ViewState>
-      <ui:HttpClient Body="{x:Null}" ConsumerKey="{x:Null}" ConsumerSecret="{x:Null}" ContinueOnError="{x:Null}" OAuth1Token="{x:Null}" OAuth1TokenSecret="{x:Null}" OAuth2Token="{x:Null}" Password="{x:Null}" ResourcePath="{x:Null}" ResponseHeaders="{x:Null}" Username="{x:Null}" AcceptFormat="ANY" BodyFormat="application/xml" ClientCertificate="[Nothing]" ClientCertificatePassword="[Nothing]" DisplayName="HTTP Request" EndPoint="https://cloud.uipath.com/t2ccfukqir/T2C/odata/Processes" sap:VirtualizedContainerService.HintSize="200,22.4" sap2010:WorkflowViewState.IdRef="HttpClient_7" Method="GET" Result="[RetornoVersaoProcessos]" StatusCode="[CodigoVersaoProcessos]" TimeoutMS="6000">
-        <ui:HttpClient.Attachments>
-          <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
-        </ui:HttpClient.Attachments>
-        <ui:HttpClient.Cookies>
-          <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
-        </ui:HttpClient.Cookies>
-        <ui:HttpClient.Headers>
-          <InArgument x:TypeArguments="x:String" x:Key="Content-Type">
-            <Literal x:TypeArguments="x:String">application/json</Literal>
-          </InArgument>
-          <InArgument x:TypeArguments="x:String" x:Key="X-UIPATH-TenantName">
-            <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="tenantName" />
-          </InArgument>
-          <InArgument x:TypeArguments="x:String" x:Key="X-UIPATH-OrganizationUnitId">
-            <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="PastaId" />
-          </InArgument>
-          <InArgument x:TypeArguments="x:String" x:Key="Authorization">
-            <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="&quot;Bearer &quot; + TokenAcesso" />
-          </InArgument>
-        </ui:HttpClient.Headers>
-        <ui:HttpClient.Parameters>
-          <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
-        </ui:HttpClient.Parameters>
-        <ui:HttpClient.UrlSegments>
-          <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
-        </ui:HttpClient.UrlSegments>
-      </ui:HttpClient>
-      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="200,52.8" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[RetornoVersaoProcessos]">
-        <sap:WorkflowViewStateService.ViewState>
-          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-            <x:Boolean x:Key="IsPinned">False</x:Boolean>
-          </scg:Dictionary>
-        </sap:WorkflowViewStateService.ViewState>
-      </ui:LogMessage>
-    </Sequence>
-    <Sequence DisplayName="Obter Versão dos Processos" sap:VirtualizedContainerService.HintSize="375.2,348" sap2010:WorkflowViewState.IdRef="Sequence_13">
-      <Sequence.Variables>
-        <Variable x:TypeArguments="x:String" Name="RetornoVersaoProcessos" />
-        <Variable x:TypeArguments="x:Int32" Name="CodigoVersaoProcessos" />
-      </Sequence.Variables>
-      <sap:WorkflowViewStateService.ViewState>
-        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-        </scg:Dictionary>
-      </sap:WorkflowViewStateService.ViewState>
-      <ui:HttpClient Body="{x:Null}" ConsumerKey="{x:Null}" ConsumerSecret="{x:Null}" ContinueOnError="{x:Null}" OAuth1Token="{x:Null}" OAuth1TokenSecret="{x:Null}" OAuth2Token="{x:Null}" Password="{x:Null}" ResourcePath="{x:Null}" ResponseHeaders="{x:Null}" Username="{x:Null}" AcceptFormat="ANY" BodyFormat="application/xml" ClientCertificate="[Nothing]" ClientCertificatePassword="[Nothing]" DisplayName="HTTP Request" EndPoint="https://cloud.uipath.com/t2ccfukqir/T2C//odata/Processes/UiPath.Server.Configuration.OData.GetProcessVersions(processId='Testes')" sap:VirtualizedContainerService.HintSize="333.6,22.4" sap2010:WorkflowViewState.IdRef="HttpClient_9" Method="GET" Result="[RetornoVersaoProcessos]" StatusCode="[CodigoVersaoProcessos]" TimeoutMS="6000">
-        <ui:HttpClient.Attachments>
-          <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
-        </ui:HttpClient.Attachments>
-        <ui:HttpClient.Cookies>
-          <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
-        </ui:HttpClient.Cookies>
-        <ui:HttpClient.Headers>
-          <InArgument x:TypeArguments="x:String" x:Key="Content-Type">application/json</InArgument>
-          <InArgument x:TypeArguments="x:String" x:Key="X-UIPATH-TenantName">[tenantName]</InArgument>
-          <InArgument x:TypeArguments="x:String" x:Key="X-UIPATH-OrganizationUnitId">[PastaId]</InArgument>
-          <InArgument x:TypeArguments="x:String" x:Key="Authorization">["Bearer " + TokenAcesso]</InArgument>
-        </ui:HttpClient.Headers>
-        <ui:HttpClient.Parameters>
-          <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
-        </ui:HttpClient.Parameters>
-        <ui:HttpClient.UrlSegments>
-          <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
-        </ui:HttpClient.UrlSegments>
-      </ui:HttpClient>
-      <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="333.6,60" sap2010:WorkflowViewState.IdRef="MessageBox_7" Text="[RetornoVersaoProcessos]" />
-      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="333.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Info" Message="[RetornoVersaoProcessos]">
-        <sap:WorkflowViewStateService.ViewState>
-          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-            <x:Boolean x:Key="IsPinned">False</x:Boolean>
-          </scg:Dictionary>
-        </sap:WorkflowViewStateService.ViewState>
-      </ui:LogMessage>
-    </Sequence>
-    <Sequence DisplayName="Start Jobs" sap:VirtualizedContainerService.HintSize="375.2,215.2" sap2010:WorkflowViewState.IdRef="Sequence_11">
-      <Sequence.Variables>
-        <Variable x:TypeArguments="x:String" Name="ResultadoStartJob" />
-      </Sequence.Variables>
-      <sap:WorkflowViewStateService.ViewState>
-        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-        </scg:Dictionary>
-      </sap:WorkflowViewStateService.ViewState>
-      <ui:HttpClient ConsumerKey="{x:Null}" ConsumerSecret="{x:Null}" ContinueOnError="{x:Null}" OAuth1Token="{x:Null}" OAuth1TokenSecret="{x:Null}" OAuth2Token="{x:Null}" Password="{x:Null}" ResourcePath="{x:Null}" ResponseHeaders="{x:Null}" StatusCode="{x:Null}" Username="{x:Null}" AcceptFormat="ANY" Body="[&quot;{ &quot;&quot;startInfo&quot;&quot;:   { &quot;&quot;ReleaseKey&quot;&quot;: &quot;&quot;82a4264c-f03e-4465-93b6-f4e15e242000&quot;&quot;,     &quot;&quot;Strategy&quot;&quot;: &quot;&quot;Specific&quot;&quot;,     &quot;&quot;RobotIds&quot;&quot;: [ &quot;+RoboId+&quot; ],     &quot;&quot;JobsCount&quot;&quot;: 0,     &quot;&quot;Source&quot;&quot;: &quot;&quot;Manual&quot;&quot;    } }&quot;]" BodyFormat="application/xml" ClientCertificate="[Nothing]" ClientCertificatePassword="[Nothing]" DisplayName="HTTP Request" EndPoint="https://cloud.uipath.com/t2ccfukqir/T2C/odata/Jobs/UiPath.Server.Configuration.OData.StartJobs" sap:VirtualizedContainerService.HintSize="333.6,22.4" sap2010:WorkflowViewState.IdRef="HttpClient_8" Method="POST" Result="[ResultadoStartJob]" TimeoutMS="6000">
-        <ui:HttpClient.Attachments>
-          <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
-        </ui:HttpClient.Attachments>
-        <ui:HttpClient.Cookies>
-          <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
-        </ui:HttpClient.Cookies>
-        <ui:HttpClient.Headers>
-          <InArgument x:TypeArguments="x:String" x:Key="Content-Type">
-            <Literal x:TypeArguments="x:String">application/json</Literal>
-          </InArgument>
-          <InArgument x:TypeArguments="x:String" x:Key="X-UIPATH-TenantName">
-            <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="tenantName" />
-          </InArgument>
-          <InArgument x:TypeArguments="x:String" x:Key="X-UIPATH-OrganizationUnitId">
-            <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="PastaId" />
-          </InArgument>
-          <InArgument x:TypeArguments="x:String" x:Key="Authorization">
-            <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="&quot;Bearer &quot; + TokenAcesso" />
-          </InArgument>
-        </ui:HttpClient.Headers>
-        <ui:HttpClient.Parameters>
-          <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
-        </ui:HttpClient.Parameters>
-        <ui:HttpClient.UrlSegments>
-          <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
-        </ui:HttpClient.UrlSegments>
-      </ui:HttpClient>
-      <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="333.6,60" sap2010:WorkflowViewState.IdRef="MessageBox_8" Text="[ResultadoStartJob]" />
-    </Sequence>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="333.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_9" Level="Info" Message="[&quot;Tenant Name: &quot; + tenantName]" />
+    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke LogarOrchetrator workflow" sap:VirtualizedContainerService.HintSize="333.6,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" UnSafe="False" WorkflowFileName="AuthenticationSequencia.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="x:String" x:Key="in_tenantName">
+          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="tenantName" />
+        </InArgument>
+        <InOutArgument x:TypeArguments="x:String" x:Key="io_Retorno">
+          <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="Retorno" />
+        </InOutArgument>
+        <OutArgument x:TypeArguments="njl:JObject" x:Key="out_JsonObject">
+          <mva:VisualBasicReference x:TypeArguments="njl:JObject" ExpressionText="JsonObjetct" />
+        </OutArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="out_TokenAcesso">
+          <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="TokenAcesso" />
+        </OutArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_client_id">
+          <Literal x:TypeArguments="x:String">8DEv1AMNXczW3y4U15LL3jYf62jK93n5</Literal>
+        </InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_refresh_token">
+          <Literal x:TypeArguments="x:String">XaIZSJKV2wObqVdQDH1bNvf7vzzl5rzWqGLD0CKVOKiCe</Literal>
+        </InArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke ObterVersãodosProcessos workflow" sap:VirtualizedContainerService.HintSize="333.6,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_7" UnSafe="False" WorkflowFileName="GetReleaseKeySequencia.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="x:String" x:Key="in_tenantName">
+          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="tenantName" />
+        </InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_TokenAcesso">
+          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="TokenAcesso" />
+        </InArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="out_VersaoProcesso">
+          <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="KeyVersaoProcesso" />
+        </OutArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke GetRobotIdSequencia workflow" sap:VirtualizedContainerService.HintSize="333.6,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_8" UnSafe="False" WorkflowFileName="GetRobotIdSequencia.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="x:String" x:Key="in_tenantName">
+          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="tenantName" />
+        </InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_TokenAcesso">
+          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="TokenAcesso" />
+        </InArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="out_RoboId">
+          <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="RoboId" />
+        </OutArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke GetFolderIDSequencia workflow" sap:VirtualizedContainerService.HintSize="333.6,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_10" UnSafe="False" WorkflowFileName="GetFolderIDSequencia.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="x:String" x:Key="in_tenantName">
+          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="tenantName" />
+        </InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_TokenAcesso">
+          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="TokenAcesso" />
+        </InArgument>
+        <InOutArgument x:TypeArguments="x:String" x:Key="io_RestostasPastas" />
+        <OutArgument x:TypeArguments="x:String" x:Key="out_Key" />
+        <OutArgument x:TypeArguments="x:String" x:Key="out_PastaId">
+          <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="PastaID" />
+        </OutArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke StartJobsSequencia workflow" sap:VirtualizedContainerService.HintSize="333.6,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_9" UnSafe="False" WorkflowFileName="StartJobsSequencia.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="x:String" x:Key="in_VersaoProcesso">
+          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="KeyVersaoProcesso" />
+        </InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_RoboId">
+          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="RoboId" />
+        </InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_TokenAcesso">
+          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="TokenAcesso" />
+        </InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_tenantName">
+          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="tenantName" />
+        </InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_PastaID">
+          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="PastaID" />
+        </InArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
   </Sequence>
 </Activity>
