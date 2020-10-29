@@ -1,6 +1,6 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Main" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1051.2,2227.2" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:njl="clr-namespace:Newtonsoft.Json.Linq;assembly=Newtonsoft.Json" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="850.4,837.6" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:njl="clr-namespace:Newtonsoft.Json.Linq;assembly=Newtonsoft.Json" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:usa="clr-namespace:UiPathTeam.Subtitle.Activities;assembly=SubtitleActivity" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
-    <scg:List x:TypeArguments="x:String" Capacity="38">
+    <scg:List x:TypeArguments="x:String" Capacity="76">
       <x:String>System.Activities</x:String>
       <x:String>System.Activities.Statements</x:String>
       <x:String>System.Activities.Expressions</x:String>
@@ -39,10 +39,11 @@
       <x:String>UiPath.Platform.Triggers</x:String>
       <x:String>UiPath.Platform.Triggers.Scope</x:String>
       <x:String>Microsoft.VisualBasic.CompilerServices</x:String>
+      <x:String>UiPathTeam.Subtitle.Activities</x:String>
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="30">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="60">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -73,9 +74,10 @@
       <AssemblyReference>Newtonsoft.Json</AssemblyReference>
       <AssemblyReference>UiPath.Platform</AssemblyReference>
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>SubtitleActivity</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap:VirtualizedContainerService.HintSize="794.4,2062.4" sap2010:WorkflowViewState.IdRef="Sequence_2">
+  <Sequence sap:VirtualizedContainerService.HintSize="375.2,632.8" sap2010:WorkflowViewState.IdRef="Sequence_2">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="url" />
       <Variable x:TypeArguments="x:String" Name="tenantName" />
@@ -92,7 +94,7 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Assign sap2010:Annotation.AnnotationText="Url do Orchetrator" sap:VirtualizedContainerService.HintSize="752.8,91.2" sap2010:WorkflowViewState.IdRef="Assign_1">
+    <Assign sap2010:Annotation.AnnotationText="Url do Orchetrator" sap:VirtualizedContainerService.HintSize="333.6,91.2" sap2010:WorkflowViewState.IdRef="Assign_1">
       <Assign.To>
         <OutArgument x:TypeArguments="x:String">[url]</OutArgument>
       </Assign.To>
@@ -105,7 +107,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </Assign>
-    <Assign sap2010:Annotation.AnnotationText="Tenant Name" sap:VirtualizedContainerService.HintSize="752.8,91.2" sap2010:WorkflowViewState.IdRef="Assign_2">
+    <Assign sap2010:Annotation.AnnotationText="Tenant Name" sap:VirtualizedContainerService.HintSize="333.6,91.2" sap2010:WorkflowViewState.IdRef="Assign_2">
       <Assign.To>
         <OutArgument x:TypeArguments="x:String">[tenantName]</OutArgument>
       </Assign.To>
@@ -118,10 +120,26 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </Assign>
-    <ui:MessageBox Caption="{x:Null}" Buttons="YesNo" ChosenButton="[SaidaExecutarProcesso]" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="752.8,60" sap2010:WorkflowViewState.IdRef="MessageBox_11" Text="[&quot;Quer Executar o Processo Ola Mundo?&quot;]" />
-    <If Condition="[SaidaExecutarProcesso = &quot;Yes&quot;]" sap:VirtualizedContainerService.HintSize="752.8,1607.2" sap2010:WorkflowViewState.IdRef="If_4">
+    <usa:DisplaySubtitleActivity ContinueOnError="{x:Null}" BackgroundColor="Black" BackgroundOpacity="0.8" DisplayName="Display Subtitle" DurationMS="3000" FontSize="38" sap:VirtualizedContainerService.HintSize="333.6,22.4" sap2010:WorkflowViewState.IdRef="DisplaySubtitleActivity_1" Message="Pergunda se Vai executar o Processo Via API" TextColor="White" />
+    <ui:MessageBox Caption="{x:Null}" sap2010:Annotation.AnnotationText="Pergunta de deseja Execuar o Processo Via API" Buttons="YesNo" ChosenButton="[SaidaExecutarProcesso]" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="333.6,91.2" sap2010:WorkflowViewState.IdRef="MessageBox_11" Text="[&quot;Quer iniciar o Processo  Via API?&quot;]">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:MessageBox>
+    <If sap2010:Annotation.AnnotationText="Verifica a opção escolhida" Condition="[SaidaExecutarProcesso = &quot;Yes&quot;]" sap:VirtualizedContainerService.HintSize="333.6,84" sap2010:WorkflowViewState.IdRef="If_4">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
       <If.Then>
-        <Sequence sap:VirtualizedContainerService.HintSize="375.2,1457.6" sap2010:WorkflowViewState.IdRef="Sequence_20">
+        <Sequence sap:VirtualizedContainerService.HintSize="283.2,1714.4" sap2010:WorkflowViewState.IdRef="Sequence_20">
           <Sequence.Variables>
             <Variable x:TypeArguments="x:String" Name="ResultadoMenssagemRobo" />
           </Sequence.Variables>
@@ -130,126 +148,248 @@
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:InputDialog Options="{x:Null}" DisplayName="Input Dialog" sap:VirtualizedContainerService.HintSize="333.6,295.2" sap2010:WorkflowViewState.IdRef="InputDialog_1" IsPassword="False" Label="EX: Ola para o Processo" OptionsString="01;02" Title="Mande uma Menssagem para o processo">
+          <usa:DisplaySubtitleActivity ContinueOnError="{x:Null}" BackgroundColor="Black" BackgroundOpacity="0.8" DisplayName="Display Subtitle" DurationMS="3000" FontSize="38" sap:VirtualizedContainerService.HintSize="241.6,22.4" sap2010:WorkflowViewState.IdRef="DisplaySubtitleActivity_2" Message="Escolher a Opção" TextColor="White" />
+          <ui:InputDialog Options="{x:Null}" sap2010:Annotation.AnnotationText="Caixa de Dialogo para passar menssagem para outro Job via API" DisplayName="Input Dialog" sap:VirtualizedContainerService.HintSize="241.6,112.8" sap2010:WorkflowViewState.IdRef="InputDialog_1" IsPassword="False" Label="Baixar a imagem ou apenas enviar a URL para o proximo Processo?" OptionsString="Baixar Imagem do Dia;Ver Descrição da Imagem" Title="O que voce Quer Fazer?">
             <ui:InputDialog.Result>
               <OutArgument x:TypeArguments="x:String">[ResultadoMenssagemRobo]</OutArgument>
             </ui:InputDialog.Result>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
           </ui:InputDialog>
-          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="333.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_9" Level="Info" Message="[&quot;Tenant Name: &quot; + tenantName]" />
-          <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Realiza autenticação no Via API e retorna Token de Acesso" DisplayName="Invoke LogarOrchetrator workflow" sap:VirtualizedContainerService.HintSize="333.6,157.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" UnSafe="False" WorkflowFileName="AuthenticationSequencia.xaml">
+          <Sequence DisplayName="Sequence - Consulta API Nasa" sap:VirtualizedContainerService.HintSize="241.6,314.4" sap2010:WorkflowViewState.IdRef="Sequence_21">
+            <Sequence.Variables>
+              <Variable x:TypeArguments="x:String" Name="RetornoNasa" />
+              <Variable x:TypeArguments="x:Int32" Name="CodigoRetornoNasa" />
+              <Variable x:TypeArguments="njl:JObject" Name="JsonRetornoNasa" />
+            </Sequence.Variables>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <usa:DisplaySubtitleActivity ContinueOnError="{x:Null}" BackgroundColor="Black" BackgroundOpacity="0.8" DisplayName="Display Subtitle" DurationMS="3000" FontSize="38" sap:VirtualizedContainerService.HintSize="200,22.4" sap2010:WorkflowViewState.IdRef="DisplaySubtitleActivity_3" Message="Enviando requisisção para API da NASA" TextColor="White" />
+            <ui:HttpClient Body="{x:Null}" ConsumerKey="{x:Null}" ConsumerSecret="{x:Null}" ContinueOnError="{x:Null}" OAuth1Token="{x:Null}" OAuth1TokenSecret="{x:Null}" OAuth2Token="{x:Null}" Password="{x:Null}" ResourcePath="{x:Null}" ResponseHeaders="{x:Null}" Username="{x:Null}" AcceptFormat="ANY" BodyFormat="application/xml" ClientCertificate="[Nothing]" ClientCertificatePassword="[Nothing]" DisplayName="HTTP Request" EndPoint="https://api.nasa.gov/planetary/apod?api_key=PunVsuo5aW41Lsak3UFVGA4FW9LcAfzaafmgZqa1" sap:VirtualizedContainerService.HintSize="200,22.4" sap2010:WorkflowViewState.IdRef="HttpClient_10" Method="GET" Result="[RetornoNasa]" StatusCode="[CodigoRetornoNasa]" TimeoutMS="6000">
+              <ui:HttpClient.Attachments>
+                <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
+              </ui:HttpClient.Attachments>
+              <ui:HttpClient.Cookies>
+                <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
+              </ui:HttpClient.Cookies>
+              <ui:HttpClient.Headers>
+                <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
+              </ui:HttpClient.Headers>
+              <ui:HttpClient.Parameters>
+                <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
+              </ui:HttpClient.Parameters>
+              <ui:HttpClient.UrlSegments>
+                <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
+              </ui:HttpClient.UrlSegments>
+            </ui:HttpClient>
+            <If sap2010:Annotation.AnnotationText="Verifica se A consulta foi realizada com Sucesso" Condition="[CodigoRetornoNasa = 200]" sap:VirtualizedContainerService.HintSize="200,96.8" sap2010:WorkflowViewState.IdRef="If_5">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <If.Then>
+                <Sequence sap2010:Annotation.AnnotationText="Excuta a acão escolhida" sap:VirtualizedContainerService.HintSize="200,100" sap2010:WorkflowViewState.IdRef="Sequence_22">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                      <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:DeserializeJson x:TypeArguments="njl:JObject" DisplayName="Deserialize JSON" sap:VirtualizedContainerService.HintSize="496.8,60" sap2010:WorkflowViewState.IdRef="DeserializeJson`1_5" JsonObject="[JsonRetornoNasa]" JsonString="[RetornoNasa]" />
+                  <Switch x:TypeArguments="x:String" DisplayName="Switch" Expression="[ResultadoMenssagemRobo]" sap:VirtualizedContainerService.HintSize="496.8,164" sap2010:WorkflowViewState.IdRef="Switch`1_1">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <Sequence x:Key="Baixar Imagem do Dia" sap:VirtualizedContainerService.HintSize="304,525.6" sap2010:WorkflowViewState.IdRef="Sequence_24">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <Sequence sap:VirtualizedContainerService.HintSize="375.2,332.8" sap2010:WorkflowViewState.IdRef="Sequence_23">
+                        <Sequence.Variables>
+                          <Variable x:TypeArguments="x:String" Name="CaminhoPasta" />
+                        </Sequence.Variables>
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <usa:DisplaySubtitleActivity ContinueOnError="{x:Null}" BackgroundColor="Black" BackgroundOpacity="0.8" DisplayName="Display Subtitle" DurationMS="3000" FontSize="38" sap:VirtualizedContainerService.HintSize="200,22.4" sap2010:WorkflowViewState.IdRef="DisplaySubtitleActivity_4" Message="Escolher Pasta para Salvar a Imagem" TextColor="White" />
+                        <ui:SelectFolder DisplayName="Select Folder" sap:VirtualizedContainerService.HintSize="200,22.4" sap2010:WorkflowViewState.IdRef="SelectFolder_1" SelectedFolder="[CaminhoPasta]" />
+                        <usa:DisplaySubtitleActivity ContinueOnError="{x:Null}" BackgroundColor="Black" BackgroundOpacity="0.8" DisplayName="Display Subtitle" DurationMS="3000" FontSize="38" sap:VirtualizedContainerService.HintSize="200,22.4" sap2010:WorkflowViewState.IdRef="DisplaySubtitleActivity_5" Message="Fazendo Dowload...." TextColor="White" />
+                        <ui:InvokeCode ContinueOnError="{x:Null}" Code="Using wc As New System.Net.WebClient()&#xA;&#x9;&#x9;wc.DownloadFile(Url, Path)&#xA;End Using" sap:VirtualizedContainerService.HintSize="200,52.8" sap2010:WorkflowViewState.IdRef="InvokeCode_1">
+                          <ui:InvokeCode.Arguments>
+                            <InArgument x:TypeArguments="x:String" x:Key="Url">[JsonRetornoNasa("hdurl").ToString]</InArgument>
+                            <InArgument x:TypeArguments="x:String" x:Key="Path">[CaminhoPasta+"\imagenNasa.jpg"]</InArgument>
+                          </ui:InvokeCode.Arguments>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </ui:InvokeCode>
+                      </Sequence>
+                      <Assign sap:VirtualizedContainerService.HintSize="375.2,60" sap2010:WorkflowViewState.IdRef="Assign_3">
+                        <Assign.To>
+                          <OutArgument x:TypeArguments="x:String">[ResultadoMenssagemRobo]</OutArgument>
+                        </Assign.To>
+                        <Assign.Value>
+                          <InArgument x:TypeArguments="x:String">[JsonRetornoNasa("hdurl").ToString]</InArgument>
+                        </Assign.Value>
+                      </Assign>
+                    </Sequence>
+                    <Sequence x:Key="Ver Descrição da Imagem" sap:VirtualizedContainerService.HintSize="375.2,252.8" sap2010:WorkflowViewState.IdRef="Sequence_25">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="333.6,60" sap2010:WorkflowViewState.IdRef="MessageBox_14" Text="[JsonRetornoNasa(&quot;explanation&quot;)]" />
+                      <Assign sap:VirtualizedContainerService.HintSize="333.6,60" sap2010:WorkflowViewState.IdRef="Assign_4">
+                        <Assign.To>
+                          <OutArgument x:TypeArguments="x:String">[ResultadoMenssagemRobo]</OutArgument>
+                        </Assign.To>
+                        <Assign.Value>
+                          <InArgument x:TypeArguments="x:String">[JsonRetornoNasa("explanation").ToString]</InArgument>
+                        </Assign.Value>
+                      </Assign>
+                    </Sequence>
+                  </Switch>
+                </Sequence>
+              </If.Then>
+              <If.Else>
+                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="200,52.8" sap2010:WorkflowViewState.IdRef="LogMessage_10" Level="Error" Message="[&quot;Erro ao consultar a API: Erro &quot; + CodigoRetornoNasa.ToString]">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </ui:LogMessage>
+              </If.Else>
+            </If>
+          </Sequence>
+          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="241.6,52.8" sap2010:WorkflowViewState.IdRef="LogMessage_9" Level="Info" Message="[&quot;Tenant Name: &quot; + tenantName]">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </ui:LogMessage>
+          <usa:DisplaySubtitleActivity ContinueOnError="{x:Null}" BackgroundColor="Black" BackgroundOpacity="0.8" DisplayName="Display Subtitle" DurationMS="3000" FontSize="38" sap:VirtualizedContainerService.HintSize="241.6,22.4" sap2010:WorkflowViewState.IdRef="DisplaySubtitleActivity_6" Message="Logando no Orchestrator via API" TextColor="White" />
+          <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Realiza autenticação no Via API e retorna Token de Acesso" DisplayName="Invoke LogarOrchetrator workflow" sap:VirtualizedContainerService.HintSize="241.6,112.8" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" UnSafe="False" WorkflowFileName="AuthenticationSequencia.xaml">
             <ui:InvokeWorkflowFile.Arguments>
-              <InArgument x:TypeArguments="x:String" x:Key="in_tenantName">
-                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="tenantName" />
-              </InArgument>
-              <InOutArgument x:TypeArguments="x:String" x:Key="io_Retorno">
-                <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="Retorno" />
-              </InOutArgument>
-              <OutArgument x:TypeArguments="njl:JObject" x:Key="out_JsonObject">
-                <mva:VisualBasicReference x:TypeArguments="njl:JObject" ExpressionText="JsonObjetct" />
-              </OutArgument>
-              <OutArgument x:TypeArguments="x:String" x:Key="out_TokenAcesso">
-                <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="TokenAcesso" />
-              </OutArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="in_client_id">
-                <Literal x:TypeArguments="x:String">8DEv1AMNXczW3y4U15LL3jYf62jK93n5</Literal>
-              </InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="in_refresh_token">
-                <Literal x:TypeArguments="x:String">XaIZSJKV2wObqVdQDH1bNvf7vzzl5rzWqGLD0CKVOKiCe</Literal>
-              </InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_tenantName">[tenantName]</InArgument>
+              <InOutArgument x:TypeArguments="x:String" x:Key="io_Retorno">[Retorno]</InOutArgument>
+              <OutArgument x:TypeArguments="njl:JObject" x:Key="out_JsonObject">[JsonObjetct]</OutArgument>
+              <OutArgument x:TypeArguments="x:String" x:Key="out_TokenAcesso">[TokenAcesso]</OutArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_client_id">8DEv1AMNXczW3y4U15LL3jYf62jK93n5</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_refresh_token">XaIZSJKV2wObqVdQDH1bNvf7vzzl5rzWqGLD0CKVOKiCe</InArgument>
             </ui:InvokeWorkflowFile.Arguments>
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </ui:InvokeWorkflowFile>
-          <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Obtem a Chave da versão do Pacote" DisplayName="Invoke ObterVersãodosProcessos workflow" sap:VirtualizedContainerService.HintSize="333.6,144.8" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_7" UnSafe="False" WorkflowFileName="GetReleaseKeySequencia.xaml">
+          <usa:DisplaySubtitleActivity ContinueOnError="{x:Null}" BackgroundColor="Black" BackgroundOpacity="0.8" DisplayName="Display Subtitle" DurationMS="3000" FontSize="38" sap:VirtualizedContainerService.HintSize="241.6,22.4" sap2010:WorkflowViewState.IdRef="DisplaySubtitleActivity_7" Message="Obtendo Versão do Processo" TextColor="White" />
+          <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Obtem a Chave da versão do Pacote" DisplayName="Invoke ObterVersãodosProcessos workflow" sap:VirtualizedContainerService.HintSize="241.6,96.8" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_7" UnSafe="False" WorkflowFileName="GetReleaseKeySequencia.xaml">
             <ui:InvokeWorkflowFile.Arguments>
-              <InArgument x:TypeArguments="x:String" x:Key="in_tenantName">
-                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="tenantName" />
-              </InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="in_TokenAcesso">
-                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="TokenAcesso" />
-              </InArgument>
-              <OutArgument x:TypeArguments="x:String" x:Key="out_VersaoProcesso">
-                <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="KeyVersaoProcesso" />
-              </OutArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_tenantName">[tenantName]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_TokenAcesso">[TokenAcesso]</InArgument>
+              <OutArgument x:TypeArguments="x:String" x:Key="out_VersaoProcesso">[KeyVersaoProcesso]</OutArgument>
             </ui:InvokeWorkflowFile.Arguments>
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </ui:InvokeWorkflowFile>
-          <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Obtem o ID do Robo especificado" DisplayName="Invoke GetRobotIdSequencia workflow" sap:VirtualizedContainerService.HintSize="333.6,144.8" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_8" UnSafe="False" WorkflowFileName="GetRobotIdSequencia.xaml">
+          <usa:DisplaySubtitleActivity ContinueOnError="{x:Null}" BackgroundColor="Black" BackgroundOpacity="0.8" DisplayName="Display Subtitle" DurationMS="3000" FontSize="38" sap:VirtualizedContainerService.HintSize="241.6,22.4" sap2010:WorkflowViewState.IdRef="DisplaySubtitleActivity_8" Message="Obtendo ID do Robo" TextColor="White" />
+          <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Obtem o ID do Robo especificado" DisplayName="Invoke GetRobotIdSequencia workflow" sap:VirtualizedContainerService.HintSize="241.6,96.8" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_8" UnSafe="False" WorkflowFileName="GetRobotIdSequencia.xaml">
             <ui:InvokeWorkflowFile.Arguments>
-              <InArgument x:TypeArguments="x:String" x:Key="in_tenantName">
-                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="tenantName" />
-              </InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="in_TokenAcesso">
-                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="TokenAcesso" />
-              </InArgument>
-              <OutArgument x:TypeArguments="x:String" x:Key="out_RoboId">
-                <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="RoboId" />
-              </OutArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_tenantName">[tenantName]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_TokenAcesso">[TokenAcesso]</InArgument>
+              <OutArgument x:TypeArguments="x:String" x:Key="out_RoboId">[RoboId]</OutArgument>
             </ui:InvokeWorkflowFile.Arguments>
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </ui:InvokeWorkflowFile>
-          <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Obtem o ID da Pasta detrabalho" DisplayName="Invoke GetFolderIDSequencia workflow" sap:VirtualizedContainerService.HintSize="333.6,144.8" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_10" UnSafe="False" WorkflowFileName="GetFolderIDSequencia.xaml">
+          <usa:DisplaySubtitleActivity ContinueOnError="{x:Null}" BackgroundColor="Black" BackgroundOpacity="0.8" DisplayName="Display Subtitle" DurationMS="3000" FontSize="38" sap:VirtualizedContainerService.HintSize="241.6,22.4" sap2010:WorkflowViewState.IdRef="DisplaySubtitleActivity_9" Message="Obtendo ID da Pasta no Orchestrator" TextColor="White" />
+          <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Obtem o ID da Pasta detrabalho" DisplayName="Invoke GetFolderIDSequencia workflow" sap:VirtualizedContainerService.HintSize="241.6,96.8" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_10" UnSafe="False" WorkflowFileName="GetFolderIDSequencia.xaml">
             <ui:InvokeWorkflowFile.Arguments>
-              <InArgument x:TypeArguments="x:String" x:Key="in_tenantName">
-                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="tenantName" />
-              </InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="in_TokenAcesso">
-                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="TokenAcesso" />
-              </InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_tenantName">[tenantName]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_TokenAcesso">[TokenAcesso]</InArgument>
               <InOutArgument x:TypeArguments="x:String" x:Key="io_RestostasPastas" />
               <OutArgument x:TypeArguments="x:String" x:Key="out_Key" />
-              <OutArgument x:TypeArguments="x:String" x:Key="out_PastaId">
-                <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="PastaID" />
-              </OutArgument>
+              <OutArgument x:TypeArguments="x:String" x:Key="out_PastaId">[PastaID]</OutArgument>
             </ui:InvokeWorkflowFile.Arguments>
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </ui:InvokeWorkflowFile>
-          <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Starta um processo via API" DisplayName="Invoke StartJobsSequencia workflow" sap:VirtualizedContainerService.HintSize="333.6,144.8" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_9" UnSafe="False" WorkflowFileName="StartJobsSequencia.xaml">
+          <usa:DisplaySubtitleActivity ContinueOnError="{x:Null}" BackgroundColor="Black" BackgroundOpacity="0.8" DisplayName="Display Subtitle" DurationMS="3000" FontSize="38" sap:VirtualizedContainerService.HintSize="241.6,22.4" sap2010:WorkflowViewState.IdRef="DisplaySubtitleActivity_10" Message="Enviando resquisição pata inicializar o Processo No Orchestrator" TextColor="White" />
+          <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Starta um processo via API" DisplayName="Invoke StartJobsSequencia workflow" sap:VirtualizedContainerService.HintSize="241.6,84" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_9" UnSafe="False" WorkflowFileName="StartJobsSequencia.xaml">
             <ui:InvokeWorkflowFile.Arguments>
-              <InArgument x:TypeArguments="x:String" x:Key="in_VersaoProcesso">
-                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="KeyVersaoProcesso" />
-              </InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="in_RoboId">
-                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="RoboId" />
-              </InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="in_TokenAcesso">
-                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="TokenAcesso" />
-              </InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="in_tenantName">
-                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="tenantName" />
-              </InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="in_PastaID">
-                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="PastaID" />
-              </InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="in_Arguments">
-                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="ResultadoMenssagemRobo" />
-              </InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_VersaoProcesso">[KeyVersaoProcesso]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_RoboId">[RoboId]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_TokenAcesso">[TokenAcesso]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_tenantName">[tenantName]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_PastaID">[PastaID]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_Arguments">[ResultadoMenssagemRobo]</InArgument>
             </ui:InvokeWorkflowFile.Arguments>
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </ui:InvokeWorkflowFile>
         </Sequence>
       </If.Then>
       <If.Else>
-        <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="333.6,60" sap2010:WorkflowViewState.IdRef="MessageBox_13" Text="[&quot;OK, O processo nao Será Executado&quot;]" />
+        <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="200,52.8" sap2010:WorkflowViewState.IdRef="MessageBox_13" Text="[&quot;OK, O processo nao Será Executado&quot;]">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </ui:MessageBox>
       </If.Else>
     </If>
   </Sequence>
